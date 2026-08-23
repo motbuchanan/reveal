@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#12141a">
-<title>The Whole Machine: A Six-Part Course</title>
+<title>All Thumbs: build it on a phone</title>
 <meta name="description" content="Six small interactive explainers, one map: computer, internet, browser, Linux, Python, and Git, with live progress tracking.">
 <style>
 :root{
@@ -66,14 +66,14 @@ footer{color:#5b6272;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 <div class="hero">
   <div class="topline">
     <div>
-      <div class="kick">a six-part course</div>
-      <h1>The Whole Machine</h1>
-      <p class="sub" style="font-size:18px">Six small explainers, one map: what is actually happening between your finger and the screen.</p>
+      <div class="kick">build it on a phone</div>
+      <h1>All Thumbs</h1>
+      <p class="sub" style="font-size:18px">I build almost everything on a phone. This is the course I built to teach myself what was actually happening under it, one small explainer at a time.</p>
     </div>
-    <button id="vbadge" aria-label="version">v1.2</button>
+    <button id="vbadge" aria-label="version">v1.3</button>
   </div>
   <p>Each part is a standalone interactive explainer with real working sandboxes, missions, a practice gym with randomized drills, and a five-question quiz. Do them in order for the full story: first how anything reaches your screen, then the toolbox people build it all with.</p>
-  <p class="sub">Every gym has a <b>Your work</b> level: drills shaped like the real thing I build with these tools, not textbook exercises. I saw what I needed to know, so I built the tool to teach it to myself.</p>
+  <p class="sub">Every gym has a <b>Your work</b> level: drills shaped like the real thing I build with these tools, not textbook exercises. Supposedly all thumbs, I still built the whole thing. I saw what I needed to know, so I built the tool to teach it to myself.</p>
   <div class="overall">
     <div class="obar"><div id="obarFill"></div></div>
     <div class="oline"><span>course progress</span><b id="opct">0%</b></div>
@@ -92,14 +92,14 @@ footer{color:#5b6272;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 </div>
 
 <footer>
-  The Whole Machine · a small course · made on a phone<br>
+  All Thumbs · a small course · built on a phone<br>
   Suggested rhythm: one part per sitting. Missions first, quiz last.
 </footer>
 </main>
 <div id="toast" role="status"></div>
 <script>
 "use strict";
-var VERSION = "v1.2 · Aug 22";
+var VERSION = "v1.3 · Aug 22";
 
 /* pure helpers (testable) */
 function countDone(state){

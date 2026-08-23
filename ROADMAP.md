@@ -1,13 +1,13 @@
-# The Reveal — course roadmap and state
+# All Thumbs — course roadmap and state
 
-Doc version: v1.0 · Aug 22 2026
+Doc version: v1.1 · Aug 23 2026
 This file is the source of truth for the course. Read it first when picking the work back up. Update it (new doc version at top) whenever something ships or a decision changes. Most recent is authoritative; if the code and this doc disagree, trust the code and fix the doc, flagging the conflict.
 
 ---
 
 ## What this is
 
-An interactive course that teaches the fundamentals under Mot's own builds, for his learning first and as a public shelf piece second. Not a read-it course. A do-reps-until-it-sticks course: every part has real working sandboxes and a practice Gym with drills checked live against a real engine.
+An interactive course ("All Thumbs") that teaches the fundamentals under Mot's own builds, for his learning first and as a public shelf piece second. Public angle: Mot builds almost everything on a phone, so the hook is phone-first, self-taught building. Not a read-it course. A do-reps-until-it-sticks course: every part has real working sandboxes and a practice Gym with drills checked live against a real engine.
 
 Primary goal: help Mot learn what he needs to keep building.
 Second goal: a shareable teaching piece on the website (motbuchanan.com shelf).
@@ -30,11 +30,11 @@ Two honesty rails so the pitch stays defensible:
 - Aug 22: Public shelf identity pulls from The Reveal. See "Pull from The Reveal" below.
 - Aug 22: Tier 2 chapters get built next, in order, THEN the three Tier 3 branches. Confirmed.
 - Aug 22: Aesthetic direction: each section keeps its own theme (colors/fonts fit the concept); a cohesive layer holds it together, especially the hub as branches grow. A dedicated design pass happens later, done as pick-from-options, not decided unilaterally. DEFERRED, do not design-pass early.
+- Aug 23: PUBLIC NAME LOCKED = "All Thumbs." Dropped the magician/"Reveal" framing entirely. New angle: phone-first, self-taught building ("supposedly all thumbs, still built the whole thing on a phone"). "The Whole Machine" is retired as the hub name. The repo FOLDER stays `reveal` (renaming breaks the live GitHub Pages URL) — folder name and display name are deliberately separate. Live at https://motbuchanan.github.io/reveal/ , hub at /course.html .
 - Nothing goes public yet. Keep developing.
 
 ### Open decisions (settle before the work they gate)
 
-- PUBLIC TITLE: make "The Reveal" the shelf title and demote "The Whole Machine" to the Unit 1 name? This sets the hub wordmark. Not yet locked. (Recommended: yes.)
 - Design pass: deferred by choice until the branches start growing. Not blocking Tier 2.
 
 ---
@@ -51,7 +51,7 @@ Seven single-file HTML apps, same origin, deploy together in one folder. The hub
 | linux-basics.html | Under the Hood | v3.0 | linux101_v1 | state.missions{m1..m6} + quizBest + gym |
 | python-basics.html | Second Language | v3.0 | python101_v1 | state.lessons{p1..p4} + quizBest + gym |
 | git-basics.html | Save Points | v3.0 | git101_v1 | state.m{m1..m7} + state.boss + quizBest + gym |
-| course.html | The Whole Machine (hub) | v1.2 | reads all six | reads .m / .missions / .lessons + .gym |
+| course.html | All Thumbs (hub) | v1.3 | reads all six | reads .m / .missions / .lessons + .gym |
 
 Course order: computer, internet, browser (Unit 1: how anything reaches your screen), then linux, python, git (Unit 2: your toolbox).
 
@@ -125,7 +125,7 @@ Placed after the fundamentals on purpose. This is Mot's mastery lane, so it is w
 
 The Reveal was reveal.html (was fieldguide.html), key reveal_v1, an 18-chapter read-only course. Its mission survives here. Pull, in priority order:
 
-1. Name + premise. "The Reveal" and the magician framing ("every trick looks like magic until someone shows you how it's done") as the public shelf title and series story. Personally resonant: Mot was a professional magician / balloon twister who put himself through college with it. HIGHEST-VALUE pull.
+1. Name + premise. SUPERSEDED Aug 23: the magician/"Reveal" framing was dropped in favor of "All Thumbs" (phone-first). Do NOT reintroduce the magic angle. The self-source "reveal" MECHANIC (item 3) still stands on its own merit.
 2. Shelf-dissected chapters -> becomes Tier 2 Ch 10.
 3. The self-source peek mechanic (a page shows its own outerHTML + char count). The literal "reveal." Browser explainer has a light version; the full one is a signature move.
 4. Specimen-frame visual identity (crop-mark corners, syntax palette). A candidate for the cohesive layer in the design pass. Optional.
@@ -152,5 +152,7 @@ Test suites (in the working dir, not shipped): tier0-engine-test.js, git-engine-
 ---
 
 ## Changelog
+
+- v1.1 (Aug 23 2026): Public name locked to "All Thumbs"; magician/Reveal framing dropped. Hub renamed (The Whole Machine -> All Thumbs) and rev'd to v1.3 with phone-first framing. Course went live in a standalone repo (motbuchanan/reveal, folder name kept) with .nojekyll; Pages serving. Repo folder name and display name decoupled.
 
 - v1.0 (Aug 22 2026): Doc created. Captures state after all six apps reached v3.0 (Gym pattern + "Your work" level in all six) and hub reached v1.2. Records the supersede-The-Reveal decision, the Tier 2 -> Tier 3 roadmap, the growth areas, the down-the-line media track, the training-tool framing, and the deferred design pass.
