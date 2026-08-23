@@ -1,6 +1,6 @@
 # All Thumbs — course roadmap and state
 
-Doc version: v1.1 · Aug 23 2026
+Doc version: v1.2 · Aug 23 2026
 This file is the source of truth for the course. Read it first when picking the work back up. Update it (new doc version at top) whenever something ships or a decision changes. Most recent is authoritative; if the code and this doc disagree, trust the code and fix the doc, flagging the conflict.
 
 ---
@@ -30,7 +30,7 @@ Two honesty rails so the pitch stays defensible:
 - Aug 22: Public shelf identity pulls from The Reveal. See "Pull from The Reveal" below.
 - Aug 22: Tier 2 chapters get built next, in order, THEN the three Tier 3 branches. Confirmed.
 - Aug 22: Aesthetic direction: each section keeps its own theme (colors/fonts fit the concept); a cohesive layer holds it together, especially the hub as branches grow. A dedicated design pass happens later, done as pick-from-options, not decided unilaterally. DEFERRED, do not design-pass early.
-- Aug 23: PUBLIC NAME LOCKED = "All Thumbs." Dropped the magician/"Reveal" framing entirely. New angle: phone-first, self-taught building ("supposedly all thumbs, still built the whole thing on a phone"). "The Whole Machine" is retired as the hub name. The repo FOLDER stays `reveal` (renaming breaks the live GitHub Pages URL) — folder name and display name are deliberately separate. Live at https://motbuchanan.github.io/reveal/ , hub at /course.html .
+- Aug 23: PUBLIC NAME LOCKED = "All Thumbs." Dropped the magician/"Reveal" framing entirely. New angle: phone-first, self-taught building ("supposedly all thumbs, still built the whole thing on a phone"). "The Whole Machine" is retired as the hub name. The repo FOLDER stays `reveal` (renaming breaks the live GitHub Pages URL) — folder name and display name are deliberately separate. Live at https://motbuchanan.github.io/reveal/ . ENTRY FILE is index.html (renamed from course.html on Aug 23 so the bare /reveal/ URL resolves — Pages serves index.html by default; a root without one 404s). course.html no longer exists in the repo; delete it if it lingers.
 - Nothing goes public yet. Keep developing.
 
 ### Open decisions (settle before the work they gate)
@@ -51,7 +51,7 @@ Seven single-file HTML apps, same origin, deploy together in one folder. The hub
 | linux-basics.html | Under the Hood | v3.0 | linux101_v1 | state.missions{m1..m6} + quizBest + gym |
 | python-basics.html | Second Language | v3.0 | python101_v1 | state.lessons{p1..p4} + quizBest + gym |
 | git-basics.html | Save Points | v3.0 | git101_v1 | state.m{m1..m7} + state.boss + quizBest + gym |
-| course.html | All Thumbs (hub) | v1.3 | reads all six | reads .m / .missions / .lessons + .gym |
+| index.html | All Thumbs (hub) | v1.4 | reads all six | reads .m / .missions / .lessons + .gym |
 
 Course order: computer, internet, browser (Unit 1: how anything reaches your screen), then linux, python, git (Unit 2: your toolbox).
 
@@ -152,6 +152,8 @@ Test suites (in the working dir, not shipped): tier0-engine-test.js, git-engine-
 ---
 
 ## Changelog
+
+- v1.2 (Aug 23 2026): Renamed the hub file course.html -> index.html (v1.3 -> v1.4) to fix a 404 at the bare /reveal/ URL (GitHub Pages needs a root index.html). No content change beyond the rename and version bump. Nothing referenced course.html by name, so no link fixes were needed.
 
 - v1.1 (Aug 23 2026): Public name locked to "All Thumbs"; magician/Reveal framing dropped. Hub renamed (The Whole Machine -> All Thumbs) and rev'd to v1.3 with phone-first framing. Course went live in a standalone repo (motbuchanan/reveal, folder name kept) with .nojekyll; Pages serving. Repo folder name and display name decoupled.
 
