@@ -76,13 +76,13 @@ footer{color:#5b6272;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 <div class="hero">
   <div class="topline">
     <div class="herowrap">
-      <img class="heromascot" src="img/thumb-thumbsup.png" alt="All Thumbs mascot">
+      <img class="heromascot" src="thumb-thumbsup.png" alt="All Thumbs mascot">
       <div class="herotitle">
         <div class="kick">build it on a phone</div>
         <h1>All Thumbs</h1>
       </div>
     </div>
-    <button id="vbadge" aria-label="version">v1.9</button>
+    <button id="vbadge" aria-label="version">v1.10</button>
   </div>
   <p class="sub herolede" style="font-size:18px">I build almost everything on a phone. This is the course I built to teach myself what was actually happening under it, one small explainer at a time.</p>
   <p>Each part is a standalone interactive explainer with real working sandboxes, missions, a practice gym with randomized drills, and a five-question quiz. Do them in order for the full story: first how anything reaches your screen, then the toolbox people build it all with.</p>
@@ -112,7 +112,7 @@ footer{color:#5b6272;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 <div id="toast" role="status"></div>
 <script>
 "use strict";
-var VERSION = "v1.9 · Aug 24";
+var VERSION = "v1.10 · Aug 24";
 
 /* pure helpers (testable) */
 function countDone(state){
@@ -173,7 +173,7 @@ function initApp(){
       a.className = "row";
       a.href = r.file;
       a.id = "row_" + r.key;
-      var mascot = r.img ? "<img class=\"rmascot\" src=\"img/" + r.img + ".png\" alt=\"\">" : "";
+      var mascot = r.img ? "<img class=\"rmascot\" src=\"" + r.img + ".png\" alt=\"\">" : "";
       var spotbg = "background:radial-gradient(120% 80% at 50% 100%, " + r.color + "33, " + r.color + "12 45%, transparent 75%);";
       a.innerHTML =
         "<div class=\"rspot\" style=\"" + spotbg + "\">" +
