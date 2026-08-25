@@ -1,5 +1,19 @@
 # All Thumbs — course roadmap and state
 
+## v1.9 (Aug 24 2026) - mascot art wired into hub, layout reworked
+
+The "All Thumbs" mascot is now a real cartoon-thumb character (Grok-generated raster art, background-removed to transparent PNGs). Replaces the earlier failed SVG attempts.
+
+- Hub (index.html) at v1.9. Chapter cards REDESIGNED as spotlight cards: each card = a large tinted spotlight zone (radial glow in the chapter accent color) with the mascot displayed big on top (~210px), the chapter number and complete-check as corner overlays, then title + description + progress bar BELOW. The mascot is the hero of each card, not a side icon. This is the locked chapter-card pattern going forward. Mascots prominent: hero 132px, row mascots sized by HEIGHT (104px) not a square box, so the tall thumb fills its space instead of floating in an empty square. Hero text reworked: long lede pulled to full width below the title, version badge moved to the top-right corner, so nothing wraps in a skinny column beside the mascot. Hero shows thumb-thumbsup by the wordmark; each of the six course rows shows its chapter mascot.
+- New `img/` folder in the repo root holds 18 PNGs (600px tall, transparent).
+  - Pop-ins: thumb-happy, thumb-thumbsup, thumb-wave, thumb-tip, thumb-aha, thumb-nice, thumb-cool, thumb-oops, thumb-think
+  - Chapter props: thumb-computer (chip), thumb-internet (glowing envelope), thumb-browser (beret+brush), thumb-linux (cap+wrench), thumb-python (snake), thumb-git (check flag), thumb-hosting (globe), thumb-data (STORAGE box), thumb-api (ORDER #42 ticket)
+- LOCKED decision: the mascot is Grok raster art, NOT SVG. Character block prompt: short thick thumb, clear fingernail with white free edge + lunula, knuckle crease, warm orange skin, cute face on the pad, plain white background, no hand/other fingers. Keep the flat sticker style for chapter props (one prop, plain white bg), NOT detailed 3D movie scenes.
+- GLOW poses (thumb-internet, thumb-aha, thumb-nice) have soft light with no hard edge: they must sit on a LIGHT panel, not a dark card, or the fade shows. The other 15 cut clean to full transparency.
+- thumb-computer needed a hand-composited black drop-shadow ellipse (its source had a gray ground smudge stuck to the feet).
+- The hub is no longer a single file: it is index.html + the img/ folder. Acceptable (one page, relative paths).
+
+
 Doc version: v1.2 · Aug 23 2026
 This file is the source of truth for the course. Read it first when picking the work back up. Update it (new doc version at top) whenever something ships or a decision changes. Most recent is authoritative; if the code and this doc disagree, trust the code and fix the doc, flagging the conflict.
 
