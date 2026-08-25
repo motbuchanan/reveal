@@ -1,5 +1,14 @@
 # All Thumbs — course roadmap and state
 
+## v1.11 (Aug 25 2026) - Chapter 7 Ship It (Hosting) + pop-ins placed
+
+- NEW chapter: hosting-basics.html "Ship It" (storage key hosting101_v1, state {m,quizBest,gym}). Teaches: what a host is, the repo, index.html as front door, root-vs-folder paths (the exact thing that broke the mascot upload), and the content:// / file:// phone trap as a first-class lesson. Has a live hosting engine (servePath/wouldLoad/makeDrill, module-exported for tests), 4 interactive sandboxes (repo+publish, front door, root-vs-folder, phone-trap), 6 missions, a "will this address load or 404?" gym with 4 levels, and a 5-question quiz. Footer links back to index.html.
+- Hub bumped to v1.11: added the "Ship It" spotlight row in Unit 2 (color #b7a4e3, hosting mascot). Hub now has 7 chapters.
+- Pop-in poses placed on the hub: thumb-think in the "How progress works" note, thumb-wave in the footer. Both are clean cutouts on dark, no light-panel needed.
+- Ch7 reuses already-deployed root images: thumb-hosting, thumb-tip, thumb-oops, thumb-aha. The aha pose (glow) sits in a LIGHT tipbox per the glow-panel rule. No new image files needed.
+- Chapter-card spotlight pattern (v1.9) unchanged and now covers all 7 rows.
+
+
 ## v1.10 (Aug 24 2026) - mascot art wired into hub, layout reworked
 
 The "All Thumbs" mascot is now a real cartoon-thumb character (Grok-generated raster art, background-removed to transparent PNGs). Replaces the earlier failed SVG attempts.
