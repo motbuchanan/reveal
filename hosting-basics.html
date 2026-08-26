@@ -87,6 +87,16 @@
   .ghint{font-size:13.5px; color:var(--blue); margin-top:8px; display:none;}
   .ghint.show{display:block;}
   .gbtns{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+  .tracktoggle{display:flex;gap:8px;margin:14px 0 10px;align-items:center;flex-wrap:wrap}
+  .tracktoggle .tlabel{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-right:2px}
+  .ttab{font-family:var(--mono);font-size:12.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--soft);cursor:pointer;}
+  .ttab.on.general{border-color:var(--blue);color:var(--blue);background:rgba(90,167,232,.1);font-weight:700;}
+  .ttab.on.trail{border-color:#c8a4f0;color:#c8a4f0;background:rgba(200,164,240,.12);font-weight:700;}
+  .trailbanner{font-family:var(--mono);font-size:11.5px;color:#c8a4f0;background:rgba(200,164,240,.08);border:1px solid rgba(200,164,240,.3);border-radius:8px;padding:7px 11px;margin:8px 0;display:none;}
+  .trailbanner.show{display:block;}
+  .gymcard.trailmode.active{border-color:#c8a4f0;}
+  .gymcard.trailmode.win{border-color:var(--green);}
+
 
   /* hero */
   .hero{display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;}
@@ -312,14 +322,18 @@
   .picker{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;}
   .chipbtn{font-family:var(--mono);font-size:12.5px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--soft);cursor:pointer;}
   .chipbtn.on{border-color:var(--amber);color:var(--amber);}
-  .mascotspot{text-align:center;margin:4px 0 0;}
-  .mascotspot img{height:150px;width:auto;filter:drop-shadow(0 8px 18px rgba(0,0,0,.4));}
-  .tipbox{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:12px 14px;margin:14px 0;}
-  .tipbox img{height:64px;width:auto;flex:0 0 auto;}
-  .tipbox.light{background:#f4f1ea;border-left-color:#d8a24a;}
-  .tipbox.light .tt,.tipbox.light .tp{color:#2a2620;}
-  .tipbox .tt{font-weight:700;color:var(--amber);font-size:14px;}
-  .tipbox .tp{margin:3px 0 0;font-size:14px;color:var(--soft);line-height:1.5;}
+  /* big hero-spotlight mascot inside a section (light panel so glow/phone shadows vanish) */
+  .mascotspot{text-align:center;margin:6px 0 2px;}
+  .mascotspot img{height:230px;width:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.5));}
+  /* tip boxes: mascot is BIG and pokes in at an angle, overlapping the card edge */
+  .tipbox{position:relative;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:16px 16px 16px 118px;margin:22px 0;min-height:96px;}
+  .tipbox .poke{position:absolute;left:-14px;bottom:-8px;height:150px;width:auto;transform:rotate(-8deg);filter:drop-shadow(0 8px 16px rgba(0,0,0,.45));pointer-events:none;}
+  .tipbox.right{border-left:none;border-right:3px solid var(--amber);border-radius:12px 0 0 12px;padding:16px 118px 16px 16px;}
+  .tipbox.right .poke{left:auto;right:-14px;transform:rotate(8deg);}
+  .tipbox.big{padding-left:150px;min-height:130px;}
+  .tipbox.big .poke{height:200px;left:-22px;}
+  .tipbox .tt{font-weight:700;color:var(--amber);font-size:15px;}
+  .tipbox .tp{margin:4px 0 0;font-size:14.5px;color:var(--soft);line-height:1.55;}
   .missions{margin:14px 0;}
   .mission{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;}
   .mission .mx{flex:0 0 auto;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--dim);margin-top:1px;}
@@ -344,7 +358,7 @@
     <h1>Ship It</h1>
     <p class="subtitle">How a file on your phone becomes a web address anyone can open.</p>
   </div>
-  <button class="vbadge" id="vbadge" type="button">v0.1</button>
+  <button class="vbadge" id="vbadge" type="button">v0.6</button>
 </header>
 
 <nav>
@@ -394,9 +408,9 @@
     <div id="repoUrls"></div>
   </div>
 
-  <div class="tipbox">
-    <img src="thumb-tip.png" alt="">
-    <div><div class="tt">The address is built from the name</div><p class="tp">A file called <code>about.html</code> in the repo root becomes <code>&hellip;/about.html</code>. The name you give the file IS part of the address. Rename the file, the address changes, and old links break.</p></div>
+  <div class="tipbox big">
+    <img class="poke" src="thumb-tip.png" alt="">
+    <div class="tt">The address is built from the name</div><p class="tp">A file called <code>about.html</code> in the repo root becomes <code>&hellip;/about.html</code>. The name you give the file IS part of the address. Rename the file, the address changes, and old links break.</p>
   </div>
 </section>
 
@@ -446,15 +460,16 @@
     </div>
   </div>
 
-  <div class="tipbox">
-    <img src="thumb-oops.png" alt="">
-    <div><div class="tt">The zip trap you hit</div><p class="tp">GitHub's web uploader does not unpack a zip. It just stores the zip as one file. To get a folder up, either upload the loose files into a folder, or go flat and keep everything in the root. Flat is the simplest on a phone.</p></div>
+  <div class="tipbox right">
+    <img class="poke" src="thumb-oops.png" alt="">
+    <div class="tt">The zip trap you hit</div><p class="tp">GitHub's web uploader does not unpack a zip. It just stores the zip as one file. To get a folder up, either upload the loose files into a folder, or go flat and keep everything in the root. Flat is the simplest on a phone.</p>
   </div>
 </section>
 
 <section id="trap">
   <p class="eyebrow">the phone trap</p>
   <h2>Opening from Downloads is not the same as opening from the web</h2>
+  <div class="mascotspot"><img src="thumb-on-phone.png" alt="mascot standing on a phone"></div>
   <p>Here's the one that fools everyone on a phone. When you open your HTML file straight from your Downloads folder, the address bar shows something like <code>content://</code> or <code>file://</code>. That is <b>not the web</b>. It's your phone handing you the raw file off local storage.</p>
   <p>Things that quietly break in that mode: saved progress vanishes between opens, images by relative name may not load, and anything that needs a real web address (like a service worker) just won't run. Then you upload it, open the real <code>https://</code> address, and suddenly it all works. The file was never broken. The way you opened it was.</p>
 
@@ -470,9 +485,9 @@
     </div>
   </div>
 
-  <div class="tipbox light">
-    <img src="thumb-aha.png" alt="">
-    <div><div class="tt">The fix is always the same</div><p class="tp">If something works in Downloads but not once uploaded, or the reverse, check the address bar first. If it doesn't start with <code>https://</code>, you're not testing the real thing. Open the Pages URL instead.</p></div>
+  <div class="tipbox big">
+    <img class="poke" src="thumb-aha.png" alt="">
+    <div class="tt">The fix is always the same</div><p class="tp">If something works in Downloads but not once uploaded, or the reverse, check the address bar first. If it doesn't start with <code>https://</code>, you're not testing the real thing. Open the Pages URL instead.</p>
   </div>
 </section>
 
@@ -487,6 +502,12 @@
   <p class="eyebrow">the gym</p>
   <h2>Practice: will this address work?</h2>
   <p class="small soft">Randomized drills. You're shown a repo layout and the code's path, and you call whether the browser finds the file or gets a 404. Hints cost nothing but pride; skipping resets your streak.</p>
+  <div class="tracktoggle">
+    <span class="tlabel">practice</span>
+    <button class="ttab general on" id="trackGeneral" type="button">General</button>
+    <button class="ttab trail" id="trackTrail" type="button">The Trail</button>
+  </div>
+  <div class="trailbanner" id="trailBanner">The Trail: real cases from Mot's one-thumb-on-a-phone builds. Same rules, actual stakes.</div>
   <div class="gym">
     <div class="gymstats"><span>reps<b id="repN">0</b></span><span>streak<b id="strN">0</b></span><span>best<b id="bestN">0</b></span></div>
     <div class="gymtabs" id="gymTabs"></div>
@@ -522,7 +543,7 @@
 
 <script>
 "use strict";
-var VERSION = "v0.1 \u00B7 Aug 25";
+var VERSION = "v0.6 \u00B7 Aug 26";
 var STORE_KEY = "hosting101_v1";
 
 /* ---------- guarded storage ---------- */
@@ -800,7 +821,31 @@ function makeDrill(level){
   return { story: story, loads: loads, hint: hint };
 }
 
-var gym = { level:-1, drill:null, answered:false };
+
+/* ---------- TRAIL drills: real cases from Mot's actual builds ---------- */
+var TRAIL_CASES = [
+  { story:"The mascot upload. Your code says <code>img/thumb-git.png</code> but you uploaded the PNGs loose to the repo <b>root</b> (no img folder, because the zip wouldn't unpack). Does the image load?",
+    loads:false, hint:"The file is at the root (thumb-git.png) but the code asks for img/thumb-git.png. No img folder exists, so 404. The fix you used: change the code to the bare name." },
+  { story:"After the fix. You rewrote index.html to point at <code>thumb-git.png</code> (bare) and the PNGs sit in the repo root. Does it load?",
+    loads:true, hint:"Code and file agree: both root, bare name. Loads. This is the flat layout you shipped." },
+  { story:"The 404 that started it all. You opened <code>motbuchanan.github.io/reveal</code> with no trailing slash and no index.html yet (the hub was named course.html). Front door?",
+    loads:false, hint:"No index.html at the root means the bare address has no front door. You fixed it by renaming course.html to index.html." },
+  { story:"The rename fix. Hub is now <code>index.html</code> at the repo root. Someone visits <code>motbuchanan.github.io/reveal/</code>. Loads?",
+    loads:true, hint:"index.html at the root IS the front door. The bare address serves it. This is why the hub is index.html, not hub.html." },
+  { story:"The content:// trap on Garrett's iPad. You opened the game shelf HTML straight from Downloads to test. Address bar shows <code>content://</code>. Does saved progress persist between opens?",
+    loads:false, hint:"content:// is local storage, not the web. Progress may not persist and the service worker won't run. Open the https:// Pages URL to really test." },
+  { story:"measureup/ inside the gameshelf repo. The game lives in a subfolder <code>measureup/</code> with its own index.html and all-relative paths. Someone visits <code>&hellip;/gameshelf/measureup/</code>. Loads?",
+    loads:true, hint:"A subfolder with its own index.html serves at that subfolder's bare address. This is the folder-in-repo pattern you now use for self-contained apps." },
+  { story:"The zip you tried to upload. You zipped index.html + an img folder and uploaded the .zip to GitHub web. Do the images appear on the site?",
+    loads:false, hint:"GitHub web upload stores the zip as one file, it does not unpack it. The images are trapped inside the zip. You have to upload loose files." },
+  { story:"Reframe deployed as a subfolder. Self-contained app, all-relative paths, its own scoped sw.js, dropped into an existing repo as its own folder. Visiting its folder address. Loads?",
+    loads:true, hint:"Self-contained + all-relative paths + own sw.js = safe as a folder-in-repo. This is the pattern that works for your single-file apps." }
+];
+function makeTrailDrill(){
+  return TRAIL_CASES[Math.floor(Math.random()*TRAIL_CASES.length)];
+}
+
+var gym = { level:-1, drill:null, answered:false, track:"general" };
 var GYM_LEVELS = [
   { lv:0, name:"root files" },
   { lv:1, name:"folders" },
@@ -826,10 +871,14 @@ function renderGymTabs(){
   });
 }
 function gymStart(){
-  var lv = gym.level === -1 ? Math.floor(Math.random()*4) : gym.level;
-  gym.drill = makeDrill(lv);
+  if(gym.track === "trail"){
+    gym.drill = makeTrailDrill();
+  } else {
+    var lv = gym.level === -1 ? Math.floor(Math.random()*4) : gym.level;
+    gym.drill = makeDrill(lv);
+  }
   gym.answered = false;
-  var card = $("gymCard"); card.className = "gymcard active";
+  var card = $("gymCard"); card.className = "gymcard active" + (gym.track === "trail" ? " trailmode" : "");
   $("gGoal").innerHTML = "Will this load, or 404?";
   $("gymBoard").innerHTML = "<div class='note' style='margin-top:10px'>" + gym.drill.story + "</div>";
   $("gHint").className = "ghint"; $("gHint").innerHTML = "";
@@ -848,12 +897,12 @@ function gymAnswer(saidLoads){
     s.gym.streak = (s.gym.streak||0) + 1;
     if(s.gym.streak > (s.gym.best||0)) s.gym.best = s.gym.streak;
     saveState(s);
-    card.className = "gymcard win";
+    card.className = "gymcard win" + (gym.track === "trail" ? " trailmode" : "");
     $("gGoal").innerHTML = "Correct. " + (gym.drill.loads ? "It loads." : "404.");
     markMission("gym");
   } else {
     s.gym.streak = 0; saveState(s);
-    card.className = "gymcard";
+    card.className = "gymcard" + (gym.track === "trail" ? " trailmode" : "");
     $("gGoal").innerHTML = "Not quite. " + (gym.drill.loads ? "It actually loads." : "It's actually a 404.");
   }
   $("gHint").className = "ghint show"; $("gHint").innerHTML = gym.drill.hint;
@@ -871,8 +920,27 @@ function gymSkip(){
   $("gHintBtn").style.display = "none"; $("gSkip").style.display = "none";
   $("gStart").style.display = ""; $("gStart").textContent = "Next drill";
 }
+function setTrack(t){
+  gym.track = t;
+  var g = $("trackGeneral"), tr = $("trackTrail"), tabs = $("gymTabs"), ban = $("trailBanner");
+  if(g) g.classList.toggle("on", t === "general");
+  if(tr) tr.classList.toggle("on", t === "trail");
+  if(tabs) tabs.style.display = (t === "trail") ? "none" : "";
+  if(ban) ban.className = "trailbanner" + (t === "trail" ? " show" : "");
+  // reset the card to a fresh start prompt
+  var card = $("gymCard"); if(card){ card.className = "gymcard"; }
+  if($("gGoal")) $("gGoal").innerHTML = (t === "trail")
+    ? "Real cases from the build. Tap <b>Start drill</b>."
+    : "Pick a level (or Surprise me) and tap <b>Start drill</b>.";
+  if($("gymBoard")) $("gymBoard").innerHTML = "";
+  if($("gHint")){ $("gHint").className = "ghint"; $("gHint").innerHTML = ""; }
+  ["gAnswerYes","gAnswerNo","gHintBtn","gSkip"].forEach(function(id){ if($(id)) $(id).style.display = "none"; });
+  if($("gStart")){ $("gStart").style.display = ""; $("gStart").textContent = "Start drill"; }
+}
 function initGym(){
   renderGymTabs(); gymStatsRender();
+  if($("trackGeneral")) $("trackGeneral").addEventListener("click", function(){ setTrack("general"); });
+  if($("trackTrail")) $("trackTrail").addEventListener("click", function(){ setTrack("trail"); });
   if($("gStart")) $("gStart").addEventListener("click", gymStart);
   if($("gAnswerYes")) $("gAnswerYes").addEventListener("click", function(){ gymAnswer(true); });
   if($("gAnswerNo")) $("gAnswerNo").addEventListener("click", function(){ gymAnswer(false); });

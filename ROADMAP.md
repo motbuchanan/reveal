@@ -1,5 +1,25 @@
 # All Thumbs — course roadmap and state
 
+## v1.13 (Aug 26 2026) - shadow-free mascot refresh, light-panel workaround REMOVED
+
+- Root cause fixed at the source: the only mascots that ever fought the cutout were the ones with drop shadows, reflections, or soft glows. Regenerated all of those SHADOW-FREE (hard-edge effects, no ground shadow/reflection, plain white bg) so they now cut clean to transparent like the rest.
+- Refreshed images (replace old): thumb-aha (hard-edge bulb), thumb-nice (hard-edge sparkles), thumb-internet (now a proper envelope + stamp + dot trail), thumb-on-phone, thumb-beside-phone, thumb-phone-hero.
+- NEW HUB HERO locked: thumb-phone-hero = the "hero-b" holding-phone pose. The alternate framing is saved as thumb-phone-hero-a (available spare).
+- LIGHT-PANEL SPECIAL CASE ELIMINATED. No more white panels, no -light.jpg files. Every mascot is transparent-on-dark everywhere: big centered spotlights (~230px, drop-shadow) for section hero art, and big angled poke-in (rotate ~8deg, overlap card edge, vary side/size) for tip boxes. This is the single locked mascot treatment for ALL chapters going forward.
+- Chapter 7 (hosting-basics.html) bumped to v0.6: all light-panel markup/CSS stripped, mascots back to transparent poke-in on dark. Two-track General/Trail practice from v1.12 unchanged.
+- See mascot-gallery.md for the current running image list.
+
+
+## v1.12 (Aug 26 2026) - two-track practice system + phone hero + 3 new images
+
+- BIG structural decision (locked): every section teaches ONCE (shared explanation), then practice/examples FORK into two color-coded tracks. GENERAL (blue) is the default = a complete standalone course anyone can pass and go deploy their own work. THE TRAIL (purple) = the same concept anchored to Mot's real one-thumb-on-a-phone builds, real cases + stakes. Toggle available per section; general shows first, trail is the deeper layer.
+- Chapter 7 is the TEMPLATE for this. Its gym now has a General/Trail toggle. General = the 4-level "will it load or 404?" drills. Trail = 8 real cases from Mot's actual builds (the mascot img/ vs root upload, the course.html->index.html 404 rename, the zip-wont-unpack trap, measureup/ folder-in-repo, Reframe subfolder, the content:// iPad test). Trail hides the level tabs and shows a purple banner.
+- Pattern to carry back through chapters 1-6 on their rebuild pass: shared teaching, then general-vs-trail practice fork, color-coded.
+- NEW HUB HERO: thumb-phone-hero (mascot holding a phone with the aperture logo) replaces thumbsup. Matches the build-on-a-phone angle. Hub v1.12.
+- 3 new phone images processed and added to the gallery: thumb-phone-hero (hero), thumb-on-phone, thumb-beside-phone. See mascot-gallery.md for the full running list Claude places from.
+- Chapter 7 bumped to v0.2.
+
+
 ## v1.11 (Aug 25 2026) - Chapter 7 Ship It (Hosting) + pop-ins placed
 
 - NEW chapter: hosting-basics.html "Ship It" (storage key hosting101_v1, state {m,quizBest,gym}). Teaches: what a host is, the repo, index.html as front door, root-vs-folder paths (the exact thing that broke the mascot upload), and the content:// / file:// phone trap as a first-class lesson. Has a live hosting engine (servePath/wouldLoad/makeDrill, module-exported for tests), 4 interactive sandboxes (repo+publish, front door, root-vs-folder, phone-trap), 6 missions, a "will this address load or 404?" gym with 4 levels, and a 5-question quiz. Footer links back to index.html.
