@@ -1,5 +1,24 @@
 # All Thumbs — course roadmap and state
 
+## v1.15 (Aug 26 2026) - chapter rebuild pass 1-4 (of 6)
+
+Bringing the original six chapters up to the new standard: spotlight mascot, General/Trail practice toggle, back-to-hub link. General is default (each chapter's accent color); The Trail (purple) filters the gym to real build-history cases. Done so far:
+
+- Ch1 computer-basics.html v3.1: computer mascot spotlight; Trail = fast-idiot cases (score counter, the BeatForge/iPad game-loop lag, base-price+shipping add). Existing tune-a-score / lives-countdown kept.
+- Ch2 internet-basics.html v3.1: envelope mascot; Trail = real 404s, content:// trap, stale-cache-vs-friends-phone (already strong), plus bare-URL-serves-index and the img/-vs-root broken-mascot 404.
+- Ch3 browser-basics.html v3.1: beret+brush mascot; Trail = dress-your-own-app drills (app header, brand h1 accent, version badge italic, grow game list, wire interaction). Interactive build-it drills, all already real.
+- Ch4 linux-basics.html v3.1: cap+wrench mascot; Trail kept deliberately LIGHT and labeled honest (Mot's raw-terminal experience is thin) - leans on the file/folder moves that DO map to real GitHub work: puff-kart folder, flat-repo rule, backup-before-AI-rewrite, .nojekyll, cleanup. No invented terminal sessions.
+
+STILL TO DO in this pass: Ch5 python-basics (Second Language), Ch6 git-basics (Save Points - richest Trail material, the actual branching/merge/commit history).
+
+Every chapter validated: token gates, node --check, acorn parse, jsdom (mascot + toggle + back-hub + trail drills playable). All are single-file replacements using images already in the repo root.
+
+
+## v1.14 (Aug 26 2026) - roadmap: CI/CD chapter + AI-media strand added
+
+- Added CI/CD & GitHub Actions as a planned Tier 3 chapter (Mot saw a video, asked; strong fit because he already has Pages auto-deploy and the session validation gates are a ready-made Trail case). After Ch 7 / Ch 10, not urgent.
+- Expanded the down-the-line media track: AI-generated images AND video as a full strand (how to make it, use it, edit it/post-production), with the All Thumbs mascot pipeline itself as the built-in worked example. This is Mot's mastery lane; the course eventually catches up to what he already does best.
+
 ## v1.13 (Aug 26 2026) - shadow-free mascot refresh, light-panel workaround REMOVED
 
 - Root cause fixed at the source: the only mascots that ever fought the cutout were the ones with drop shadows, reflections, or soft glows. Regenerated all of those SHADOW-FREE (hard-edge effects, no ground shadow/reflection, plain white bg) so they now cut clean to transparent like the rest.
@@ -142,6 +161,7 @@ Design rule to preserve: computer + internet field-call drills are the ONLY ones
 - Firebase / backend. Turn the buzzer learning-project into the lesson. Mot's named next skill. Auth, Firestore, live listeners, cross-device state.
 - How AI models work. Prompts, context, what the model is actually doing. Includes a practical prompting/context gym (a Mot strength, so it teaches well).
 - How digital media works. Images, video, audio as data. This is the on-ramp to the down-the-line media track.
+- CI/CD & GitHub Actions. What continuous integration/deployment is, in Mot's terms: a robot on GitHub that runs jobs automatically when you push (YAML workflows in .github/workflows/). The teaching hook: he ALREADY has the "CD" half (GitHub Pages auto-rebuilds and republishes on every upload); this chapter adds an auto-CHECK robot IN FRONT of the publish. The Trail case is exact and personal: the validation gates Claude runs every session (node syntax check, acorn parse, em-dash check, jsdom smoke) turned into a workflow Mot owns, so he catches a broken file even building solo from a phone. Comes AFTER Ch 7 (hosting) and ideally after the Ch 10 keystone. Not urgent, high fit.
 
 ### Growth areas the course is being aimed at (Mot named these)
 
@@ -152,9 +172,9 @@ Design rule to preserve: computer + internet field-call drills are the ONLY ones
 
 ### Down-the-line / future (explicitly "down the line," after fundamentals)
 
-- AI-generated images and video.
-- Using AI for editing and post-production.
-Placed after the fundamentals on purpose. This is Mot's mastery lane, so it is where the course eventually meets what he is already best at. The "how digital media works" branch is the natural lead-in.
+- AI-generated images and video: a full strand, not one chapter. How to actually do it (the tools, prompting for images vs video, keeping a character consistent across generations), how to USE what you get (background removal, cutouts, sizing, placing into a build), and how to EDIT it (compositing, fixing artifacts, post-production, stitching video). The live proof already exists in this project: the whole All Thumbs mascot pipeline (Grok generation -> shadow-free prompting -> transparent cutouts -> placement) is a worked example Mot can teach from directly. This is the natural home for the lessons he's living right now.
+- Using AI for editing and post-production (part of the strand above).
+Placed after the fundamentals on purpose. This is Mot's mastery lane, so it is where the course eventually meets what he is already best at. The "how digital media works" branch is the natural lead-in, and CI/CD + the media strand are the two clearest "the course catches up to what Mot already does" moments.
 
 ### Proposed, not yet ruled on by Mot
 
