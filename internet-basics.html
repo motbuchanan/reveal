@@ -140,6 +140,22 @@ footer{color:#4c6156;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 #toast.show{transform:translateX(-50%) translateY(0)}
 :focus-visible{outline:2px solid var(--gr2);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+  .mascotspot{text-align:center;margin:6px 0 2px;}
+  .mascotspot img{height:230px;width:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.5));}
+  .tipbox{position:relative;background:var(--panel,#101b16);border:1px solid var(--line,#24463a);border-left:3px solid #3ddc84;border-radius:0 12px 12px 0;padding:16px 16px 16px 118px;margin:22px 0;min-height:96px;}
+  .tipbox .poke{position:absolute;left:-14px;bottom:-8px;height:150px;width:auto;transform:rotate(-8deg);filter:drop-shadow(0 8px 16px rgba(0,0,0,.45));pointer-events:none;}
+  .tipbox.right{border-left:none;border-right:3px solid #3ddc84;border-radius:12px 0 0 12px;padding:16px 118px 16px 16px;}
+  .tipbox.right .poke{left:auto;right:-14px;transform:rotate(8deg);}
+  .tipbox .tt{font-weight:700;color:#3ddc84;font-size:15px;}
+  .tipbox .tp{margin:4px 0 0;font-size:14.5px;color:var(--soft,#a9c3b6);line-height:1.55;}
+  .tracktoggle{display:flex;gap:8px;margin:14px 0 10px;align-items:center;flex-wrap:wrap;}
+  .tracktoggle .tlabel{font-family:monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim,#7c9a8b);margin-right:2px;}
+  .ttab{font-family:monospace;font-size:12.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line,#24463a);background:var(--panel,#101b16);color:var(--soft,#a9c3b6);cursor:pointer;}
+  .ttab.on.general{border-color:#3ddc84;color:#3ddc84;background:rgba(61,220,132,.1);font-weight:700;}
+  .ttab.on.trail{border-color:#c8a4f0;color:#c8a4f0;background:rgba(200,164,240,.12);font-weight:700;}
+  .trailbanner{font-family:monospace;font-size:11.5px;color:#c8a4f0;background:rgba(200,164,240,.08);border:1px solid rgba(200,164,240,.3);border-radius:8px;padding:7px 11px;margin:8px 0;display:none;}
+  .trailbanner.show{display:block;}
+  .backhub{display:inline-flex;align-items:center;gap:7px;font-family:monospace;font-size:12px;color:var(--soft,#a9c3b6);border:1px solid var(--line,#24463a);border-radius:999px;padding:7px 13px;background:var(--panel,#101b16);text-decoration:none;}
 </style>
 </head>
 <body>
@@ -152,7 +168,7 @@ footer{color:#4c6156;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
       <h1>The Second After You Tap</h1>
       <p class="sub" style="font-size:18px">What the internet actually is, and where your request goes.</p>
     </div>
-    <button id="vbadge" aria-label="version">v2.0</button>
+    <button id="vbadge" aria-label="version">v3.1</button>
   </div>
   <svg class="herosvg" viewBox="0 0 280 110" aria-hidden="true">
     <line x1="30" y1="80" x2="90" y2="55" stroke="#24463a" stroke-width="2.5"/>
@@ -171,6 +187,7 @@ footer{color:#4c6156;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
     <text x="30" y="103" fill="#8fa89c" font-size="10" text-anchor="middle" font-family="monospace">you</text>
     <text x="255" y="88" fill="#8fa89c" font-size="10" text-anchor="middle" font-family="monospace">server</text>
   </svg>
+  <div class="mascotspot"><img src="thumb-internet.png" alt="mascot holding an envelope"></div>
   <p>The internet is not a cloud and not magic. It is millions of computers passing little envelopes to their neighbors, very fast. Once you can picture the envelope's trip, half the error messages you have ever seen start making sense.</p>
   <h3>You already live with this</h3>
   <div class="fgrid three">
@@ -240,6 +257,12 @@ footer{color:#4c6156;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 
   <h3>The Gym: reps until it sticks</h3>
   <p class="small">Mixed reps: address-book lookups, routing challenges on the live map above, status-code collection from the mini server below, and field calls where you diagnose a symptom. Wrong field calls reset your streak.</p>
+  <div class="tracktoggle">
+    <span class="tlabel">practice</span>
+    <button class="ttab general on" id="trackGeneral" type="button">General</button>
+    <button class="ttab trail" id="trackTrail" type="button">The Trail</button>
+  </div>
+  <div class="trailbanner" id="trailBanner">The Trail: real 404s, cache misses, and origin traps from shipping these apps.</div>
   <div class="gym">
     <div class="gymstats"><span>reps<b id="repN">0</b></span><span>streak<b id="strN">0</b></span><span>best<b id="bestN">0</b></span></div>
     <div class="gymtabs" id="gymTabs"></div>
@@ -329,11 +352,12 @@ footer{color:#4c6156;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
   The Second After You Tap · a small explainer · made on a phone<br>
   Course order: the computer first, this one second, the browser next.
 </footer>
+<div style="text-align:center;margin:24px 0 8px;"><a class="backhub" href="index.html">&larr; back to All Thumbs</a></div>
 </main>
 <div id="toast" role="status"></div>
 <script>
 "use strict";
-var VERSION = "v3.0 · Aug 22";
+var VERSION = "v3.1 · Aug 26";
 
 /* ============ ENGINE (DOM-free) ============ */
 function makeDNS(){
@@ -813,7 +837,13 @@ function initApp(){
     { sym:"You typed your custom domain into the browser and got a DNS / site-not-found error, but the raw github.io URL loads fine. What broke?",
       opts:["Your app code is broken","The name-to-number lookup for your custom domain is not set up or not propagated yet; the site itself is fine","GitHub Pages is down"], r:1,
       hint:"The github.io address works, the custom name does not. That isolates the problem to the address book (DNS), not the server." }
-  ];
+  ,
+    { sym:"You changed your custom setup so the hub lives at index.html, then visited the bare repo URL with no file name. It loads the hub. Why does the bare address work now?",
+      opts:["Bare URLs always show the newest file","The server serves index.html by default when no file is named", "GitHub picks a random file"], r:1,
+      hint:"index.html is the one special name a server reaches for when you ask for a folder with no page named. That is why the hub is named index.html." },
+    { sym:"Your mascot images showed as broken on the live site. The code asked for img/thumb-git.png but you had uploaded the PNGs loose to the repo root. What did the server answer?",
+      opts:["It resized the images","404 for each image, there is no img/ folder, so nothing lives at that path","It served the wrong images"], r:1,
+      hint:"The request went to a path with nothing at it (no img/ folder). No file there means 404, which shows as a broken image." }];
   function gymEnd(win, msg){
     if(win){
       state.gym.reps++;
@@ -910,7 +940,7 @@ function initApp(){
     gymStats();
   });
   (function(){
-    var tabs = ["Surprise me"].concat(GYM_LEVELS);
+    var tabs = ["Surprise me"].concat(GYM_LEVELS.slice(0,4));
     tabs.forEach(function(name, i){
       var b = document.createElement("button");
       b.className = "gtab" + (i === 0 ? " on" : ""); b.type = "button"; b.textContent = name;
@@ -921,6 +951,23 @@ function initApp(){
       $("gymTabs").appendChild(b);
     });
   })();
+  function setTrack(t){
+    var g = $("trackGeneral"), tr = $("trackTrail"), tabs = $("gymTabs"), ban = $("trailBanner");
+    if(g) g.classList.toggle("on", t === "general");
+    if(tr) tr.classList.toggle("on", t === "trail");
+    if(tabs) tabs.style.display = (t === "trail") ? "none" : "";
+    if(ban) ban.className = "trailbanner" + (t === "trail" ? " show" : "");
+    if(t === "trail"){ gymLevel = 4; }
+    else { gymLevel = -1; Array.prototype.forEach.call(document.querySelectorAll(".gtab"), function(x, xi){ x.classList.toggle("on", xi === 0); }); }
+    if($("gymCard")) $("gymCard").className = "gymcard";
+    if($("gGoal")) $("gGoal").innerHTML = (t === "trail") ? "Real cases from shipping these apps. Tap <b>Start drill</b>." : "Pick a level (or Surprise me) and tap <b>Start drill</b>.";
+    if($("gOpts")) $("gOpts").innerHTML = "";
+    if($("gHint")){ $("gHint").className = "ghint"; $("gHint").innerHTML = ""; }
+    ["gRun","gHintBtn","gSkip"].forEach(function(id){ if($(id)) $(id).style.display = "none"; });
+    if($("gStart")) $("gStart").style.display = "";
+  }
+  if($("trackGeneral")) $("trackGeneral").addEventListener("click", function(){ setTrack("general"); });
+  if($("trackTrail")) $("trackTrail").addEventListener("click", function(){ setTrack("trail"); });
   gymStats();
   if(typeof window !== "undefined"){
     window._gym = {

@@ -156,6 +156,22 @@ footer{color:#54617a;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 #toast.show{transform:translateX(-50%) translateY(0)}
 :focus-visible{outline:2px solid var(--cy2);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+  .mascotspot{text-align:center;margin:6px 0 2px;}
+  .mascotspot img{height:230px;width:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.5));}
+  .tipbox{position:relative;background:var(--panel,#141a28);border:1px solid var(--line,#243049);border-left:3px solid #45c8ff;border-radius:0 12px 12px 0;padding:16px 16px 16px 118px;margin:22px 0;min-height:96px;}
+  .tipbox .poke{position:absolute;left:-14px;bottom:-8px;height:150px;width:auto;transform:rotate(-8deg);filter:drop-shadow(0 8px 16px rgba(0,0,0,.45));pointer-events:none;}
+  .tipbox.right{border-left:none;border-right:3px solid #45c8ff;border-radius:12px 0 0 12px;padding:16px 118px 16px 16px;}
+  .tipbox.right .poke{left:auto;right:-14px;transform:rotate(8deg);}
+  .tipbox .tt{font-weight:700;color:#45c8ff;font-size:15px;}
+  .tipbox .tp{margin:4px 0 0;font-size:14.5px;color:var(--soft,#aeb9cc);line-height:1.55;}
+  .tracktoggle{display:flex;gap:8px;margin:14px 0 10px;align-items:center;flex-wrap:wrap;}
+  .tracktoggle .tlabel{font-family:monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim,#7c8aa5);margin-right:2px;}
+  .ttab{font-family:monospace;font-size:12.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line,#243049);background:var(--panel,#141a28);color:var(--soft,#aeb9cc);cursor:pointer;}
+  .ttab.on.general{border-color:#45c8ff;color:#45c8ff;background:rgba(69,200,255,.1);font-weight:700;}
+  .ttab.on.trail{border-color:#c8a4f0;color:#c8a4f0;background:rgba(200,164,240,.12);font-weight:700;}
+  .trailbanner{font-family:monospace;font-size:11.5px;color:#c8a4f0;background:rgba(200,164,240,.08);border:1px solid rgba(200,164,240,.3);border-radius:8px;padding:7px 11px;margin:8px 0;display:none;}
+  .trailbanner.show{display:block;}
+  .backhub{display:inline-flex;align-items:center;gap:7px;font-family:monospace;font-size:12px;color:var(--soft,#aeb9cc);border:1px solid var(--line,#243049);border-radius:999px;padding:7px 13px;background:var(--panel,#141a28);text-decoration:none;}
 </style>
 </head>
 <body>
@@ -168,7 +184,7 @@ footer{color:#54617a;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
       <h1>The Fast Idiot</h1>
       <p class="sub" style="font-size:18px">What a computer actually is: a very fast worker following a very dumb list.</p>
     </div>
-    <button id="vbadge" aria-label="version">v2.0</button>
+    <button id="vbadge" aria-label="version">v3.1</button>
   </div>
   <svg class="herosvg" viewBox="0 0 270 110" aria-hidden="true">
     <rect x="95" y="25" width="80" height="60" rx="10" fill="#1c2536" stroke="#45c8ff" stroke-width="2.5"/>
@@ -183,6 +199,7 @@ footer{color:#54617a;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
     <circle cx="208" cy="40" r="4" fill="#e0904a"/><circle cx="208" cy="55" r="4" fill="#e0904a"/><circle cx="208" cy="70" r="4" fill="#e0904a"/>
     <text x="135" y="103" fill="#93a0b5" font-size="10" text-anchor="middle" font-family="monospace">billions of tiny steps per second</text>
   </svg>
+  <div class="mascotspot"><img src="thumb-computer.png" alt="mascot holding a CPU chip"></div>
   <p>Every device you own is the same machine wearing different cases. A phone, a laptop, a smart TV, a game console: one worker, one desk, one filing cabinet. Learn those three and half of tech support suddenly makes sense.</p>
   <h3>You already live with this</h3>
   <div class="fgrid">
@@ -259,6 +276,12 @@ footer{color:#54617a;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
 
   <h3>The Gym: reps until it sticks</h3>
   <p class="small">Two kinds of reps: <b>predict</b> what a short program will output before it runs (then it really runs to check you), and <b>build</b> a program to hit a target by tapping the blue numbers. Wrong predictions reset your streak; that is the workout.</p>
+  <div class="tracktoggle">
+    <span class="tlabel">practice</span>
+    <button class="ttab general on" id="trackGeneral" type="button">General</button>
+    <button class="ttab trail" id="trackTrail" type="button">The Trail</button>
+  </div>
+  <div class="trailbanner" id="trailBanner">The Trail: real moments from building these apps on a phone. The fast-idiot model, applied.</div>
   <div class="gym">
     <div class="gymstats"><span>reps<b id="repN">0</b></span><span>streak<b id="strN">0</b></span><span>best<b id="bestN">0</b></span></div>
     <div class="gymtabs" id="gymTabs"></div>
@@ -325,11 +348,12 @@ footer{color:#54617a;font-size:12.5px;text-align:center;margin:30px 0 10px;line-
   The Fast Idiot · a small explainer · made on a phone<br>
   Course order: this one first, then the internet, then the browser.
 </footer>
+<div style="text-align:center;margin:24px 0 8px;"><a class="backhub" href="index.html">&larr; back to All Thumbs</a></div>
 </main>
 <div id="toast" role="status"></div>
 <script>
 "use strict";
-var VERSION = "v3.0 · Aug 22";
+var VERSION = "v3.1 · Aug 26";
 
 /* ============ ENGINE (DOM-free) ============ */
 /* Instructions: ["SET",r,n] ["ADD",r,n] ["SUB",r,n] ["ADDR",r,r2] ["SHOW",r] ["JUMPIF",r,line] ["HALT"] */
@@ -688,6 +712,28 @@ function initApp(){
           target:seq, editLines:[0],
           hints:["The first number is the starting lives. The loop handles the rest.","Set line 1 to " + lives + "."],
           solSet:[{ line:0, val:lives }] };
+      } },
+    { id:"t01", lv:4, make:function(){
+        var start = rint(3, 6), bonus = rint(2, 4);
+        return { kind:"predict",
+          goal:"<b>From a real build.</b> A score counter in one of your games: it sets the score, shows it, adds a pickup bonus, shows it again. What does it output?",
+          prog:[["SET","A",start],["SHOW","A"],["ADD","A",bonus],["SHOW","A"],["HALT"]],
+          hints:["The worker does it in order: set, show, add, show. No magic.","First it shows " + start + ", then " + start + " plus " + bonus + "."] };
+      } },
+    { id:"t02", lv:4, make:function(){
+        var frames = rint(3, 5);
+        var seq = []; for(var i = frames; i >= 1; i--) seq.push(i);
+        return { kind:"predict",
+          goal:"<b>The game loop, why BeatForge lagged.</b> A loop ticks a countdown each frame until it hits zero. Every SHOW is one frame of work. How many frames print (what is the output)?",
+          prog:[["SET","A",frames],["SHOW","A"],["SUB","A",1],["JUMPIF","A",2],["HALT"]],
+          hints:["JUMPIF loops back to line 2 while A is still above zero. Each pass is a frame.","It counts down: " + seq.join(", ") + ". That is " + frames + " frames of work every tick, which is why heavy loops lag."] };
+      } },
+    { id:"t03", lv:4, make:function(){
+        var a = rint(2, 5), b = rint(2, 5);
+        return { kind:"predict",
+          goal:"<b>Combining two values.</b> Like adding a base price and a shipping cost in one of your tools: it loads two numbers into named slots and adds them. What prints?",
+          prog:[["SET","A",a],["SET","B",b],["ADDR","A","B"],["SHOW","A"],["HALT"]],
+          hints:["A and B are just labeled boxes. ADDR pours B into A.","" + a + " plus " + b + "."] };
       } }
   ];
   function gymStats(){
@@ -834,7 +880,7 @@ function initApp(){
     gymStats();
   });
   (function(){
-    var tabs = ["Surprise me"].concat(GYM_LEVELS);
+    var tabs = ["Surprise me"].concat(GYM_LEVELS.slice(0,4));
     tabs.forEach(function(name, i){
       var b = document.createElement("button");
       b.className = "gtab" + (i === 0 ? " on" : ""); b.type = "button"; b.textContent = name;
@@ -845,6 +891,30 @@ function initApp(){
       $("gymTabs").appendChild(b);
     });
   })();
+  function setTrack(t){
+    var g = $("trackGeneral"), tr = $("trackTrail"), tabs = $("gymTabs"), ban = $("trailBanner");
+    if(g) g.classList.toggle("on", t === "general");
+    if(tr) tr.classList.toggle("on", t === "trail");
+    if(tabs) tabs.style.display = (t === "trail") ? "none" : "";
+    if(ban) ban.className = "trailbanner" + (t === "trail" ? " show" : "");
+    if(t === "trail"){
+      gymLevel = 4;
+    } else {
+      gymLevel = -1;
+      Array.prototype.forEach.call(document.querySelectorAll(".gtab"), function(x, xi){ x.classList.toggle("on", xi === 0); });
+    }
+    $("gymCard").className = "gymcard";
+    $("gGoal").innerHTML = (t === "trail")
+      ? "Real moments from the build. Tap <b>Start drill</b>."
+      : "Pick a level (or Surprise me) and tap <b>Start drill</b>.";
+    if($("gProg")) $("gProg").style.display = "none";
+    if($("gOpts")) $("gOpts").innerHTML = "";
+    if($("gHint")){ $("gHint").className = "ghint"; $("gHint").innerHTML = ""; }
+    ["gRun","gHintBtn","gSkip"].forEach(function(id){ if($(id)) $(id).style.display = "none"; });
+    if($("gStart")) $("gStart").style.display = "";
+  }
+  if($("trackGeneral")) $("trackGeneral").addEventListener("click", function(){ setTrack("general"); });
+  if($("trackTrail")) $("trackTrail").addEventListener("click", function(){ setTrack("trail"); });
   gymStats();
   if(typeof window !== "undefined"){
     window._gym = {
